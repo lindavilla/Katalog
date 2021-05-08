@@ -75,10 +75,8 @@ A web application where users can create and manage their daily artistic content
 | Sign Up         | POST   | /signup                       | Sign up a user                                   | {mail, password}                      | /login           |
 | My Posts        | GET    | /userName                     | See all posts and profile			      | {} 
     |
-| Create Post     | GET    | /userName/create 	 	   | See inputs for post creation 		      | {image, name, description, date,      | 
-    |  	 													theme, creator}
-| Create Post     | POST   | /userName/create 	 	   | See inputs for post creation  		      | {image, name, description, date,      | /userName
-    | 														 theme, creator}	                
+| Create Post     | GET    | /userName/create 	 	   | See inputs for post creation 		      | {image, name, description, date,theme, creator}
+| Create Post     | POST   | /userName/create 	 	   | See inputs for post creation  		      | {image, name, description, date, theme, creator}	                
 | Edit Post 	  | GET    |/userName/postName 	 	   | See content of existing post		      | {}				      | 
     |
 | Edit Post	  | POST   | /userName/postName 	   | See content of existing post  	    	      | {}  	 			      | /userName
