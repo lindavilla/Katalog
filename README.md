@@ -1,8 +1,6 @@
 # Katalog
 Module 2 Project
 
-# Katalog
-
 ​
 ##  Description
 A web application where users can create and manage their daily artistic content. ​
@@ -35,12 +33,6 @@ A web application where users can create and manage their daily artistic content
 
 **Profile** - As a user I can edit my profile bio
 
-**Images** - As a user I want to upload images and add a date, description, theme, and creator.
-
-**Images_requirements** - As a user uploading an image, I can see that the image upload, date and description will be required fields 
-
-**Image_upload** - As a user I can see a confirmation that the image has been uploaded successfully 
-
 **Content Management** - As a user I can update the description of each post 
 
 **Content Management** - As a user I can not update the date of each post
@@ -65,22 +57,36 @@ A web application where users can create and manage their daily artistic content
 
 **Location** - As a user I can log in the geolocation of the post and see all my posts through maps
 
+**Images** - As a user I want to upload images and add a date, description, theme, and creator.
+
+**Images_requirements** - As a user uploading an image, I can see that the image upload, date and description will be required fields 
+
+**Image_upload** - As a user I can see a confirmation that the image has been uploaded successfully 
+
 ​
 ​
 ## Routes
 ​
 | Name            | Method | Endpoint                      | Description                                      | Body                                  | Redirects       |
-| --------------- | ------ | ----------------------------- | ------------------------------------------------ | ------------------------------------- | --------------- |
-| Home            | GET    | /                             | See the main page                                |                                       |                 |
-| Log in form     | GET    | /login                        | See the form to log in                           |                                       |                 |
-| Log in          | POST   | /login                        | Log in the user                                  | {mail, password}                      | /               |
+| --------------- | ------ | ----------------------------- | ------------------------------------------------ | ------------------------------------- | ------------	|
+| Home            | GET    | /                             | See the log in and sign up                       |                                       |                 |
+| Log in          | POST   | /login                        | Log in the user                                  | {mail, password}                      | /username       |
 | Sign Up form    | GET    | /signup                       | See the form to sign up                          |                                       |                 |
 | Sign Up         | POST   | /signup                       | Sign up a user                                   | {mail, password}                      | /login           |
-| Profile         | GET    | /userName                     | See profile of logged in user  
-
+| My Posts        | GET    | /userName                     | See all posts and profile			      | {} 
     |
-
-
+| Create Post     | GET    | /userName/create 	 	   | See inputs for post creation 		      | {image, name, description, date,      | 
+    |  	 													theme, creator}
+| Create Post     | POST   | /userName/create 	 	   | See inputs for post creation  		      | {image, name, description, date,      | /userName
+    | 														 theme, creator}	                
+| Edit Post 	  | GET    |/userName/postName 	 	   | See content of existing post		      | {}				      | 
+    |
+| Edit Post	  | POST   | /userName/postName 	   | See content of existing post  	    	      | {}  	 			      | /userName
+    |
+| Edit Profile	  | GET    | /userName/edit		   | Edit profile of logged in user 	    	      | {firstName, lastName, email, 	      | 
+    |														password, age} 			      
+| Edit Profile    | POST   | //userName/edit		   | Submit changes to profile			      | {firstName, lastName, email,	      | /userName
+														password, age}
 
  
 ​
@@ -97,15 +103,17 @@ User model
     age: Number
 }
 
-Post Model
+Post model
+​
 
 { 
-	image: ,
-	name: ,
-	description: ,
-	date: ,
-	theme: ,
-	creator: ,
+	userID: Number,
+	image: String,
+	name: String ,
+	description: String,
+	date: Number,
+	theme: String,
+	creator: String,
 
 }
 ```
