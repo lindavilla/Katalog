@@ -88,7 +88,7 @@ A web application where users can create and manage their daily artistic content
 | Edit Profile    | POST   | //userName/edit		   | Submit changes to profile			      | {firstName, lastName, email,	      | /userName
 														password, age}
 
- 
+ --
 ​
 ## Models
 ​
