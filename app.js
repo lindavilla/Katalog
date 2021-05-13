@@ -32,11 +32,7 @@ app.use(cookieParser());
 
 // Express View engine setup
 
-app.use(require('node-sass-middleware')({
-  src:  path.join(__dirname, 'public'),
-  dest: path.join(__dirname, 'public'),
-  sourceMap: true
-}));
+
       
 
 app.set('views', path.join(__dirname, 'views'));
@@ -51,15 +47,20 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 
-const index = require('./routes/index');
-app.use('/', index);
+const indexRouter = require('./routes/index');
+//app.use('/', index);
 
-const usersRoutes = require('./routes/user.routes.js');
+/*
+const usersRoutes = require('./routes/user.routes');
 app.use('/', usersRoutes);
 
-const postsRoutes = require('./routes/post.routes.js');
+const postsRoutes = require('./routes/post.routes');
 app.use('/', postsRoutes);
+*/
 
+// Routes middleware
+app.use('/', indexRouter); // <== already included
+//app.use('/', authRouter); // <== has to be added
 
 
 module.exports = app;
