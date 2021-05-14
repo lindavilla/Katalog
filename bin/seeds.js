@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { getMaxListeners } = require('../models/user.model.js');
 const User = require("../models/user.model.js"); 
-const DB_NAME = 'Katalog-project';
+const DB_NAME = 'katalog';
  
 mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
   useCreateIndex: true,
@@ -9,31 +9,16 @@ mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
   useUnifiedTopology: true
 });
 
-const posts = [
-    {
-        userId: {type: Schema.Types.ObjectId, ref: 'User'},
-        title: "Cool Art",
-        created: {
-          type: Date,
-          default: Date.now
-        },
-        description: "Nice Art",
-        keywords: ["art","new","street"],
-        theme: "contemporary",
-        creator: "B-ri",
-      }
-  ];
-
   const users = [
-        {   name: "Brian",
+        {   name: "Bri",
             email: "coolBrian@gmail.com",
             bio: "hey guys",
-            hashPassword: "supersecret",
+            passwordHash: "supersecret",
         },
         {   name: "Brian",
-            email: "coolBrian@gmail.com",
+            email: "cool@gmail.com",
             bio: "hey guys",
-            hashPassword: "supersecret",
+            passwordHash: "hello",
     },
   ]
 
@@ -42,9 +27,6 @@ const posts = [
   .then(userFromDB => {
     console.log(`Created ${userFromDB.length} users`);
 
-  Post.create(posts)
-  .then(postsFromDB => {
-    console.log(`Created ${postsFromDB.length} posts`);
  
     mongoose.connection.close();
   })

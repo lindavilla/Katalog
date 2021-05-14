@@ -50,17 +50,15 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const indexRouter = require('./routes/index');
 //app.use('/', index);
 
-/*
-const usersRoutes = require('./routes/user.routes');
-app.use('/', usersRoutes);
+const userRouter = require('./routes/user.routes');
+//app.use('/', userRouter);
 
 const postsRoutes = require('./routes/post.routes');
-app.use('/', postsRoutes);
-*/
+//app.use('/', postsRoutes);
 
 // Routes middleware
 app.use('/', indexRouter); // <== already included
 //app.use('/', authRouter); // <== has to be added
-
+app.use('/',userRouter);
 
 module.exports = app;

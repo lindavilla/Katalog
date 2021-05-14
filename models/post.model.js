@@ -3,9 +3,10 @@ const { Schema, model } = mongoose;
  
 const postSchema = new Schema(
   {
-    userId: {type: Schema.Types.ObjectId, ref: 'User'},
+    //userId: {type: Schema.Types.ObjectId, ref: 'User'},
     title: String,
-    created: {
+    created: 
+    {
       type: Date,
       default: Date.now
     },
@@ -13,7 +14,6 @@ const postSchema = new Schema(
     keywords: [String],
     theme: String,
     creator: String,
-  }
-);
+  });
  
 module.exports = model('Post', postSchema);

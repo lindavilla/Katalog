@@ -3,7 +3,7 @@ const { Schema, model } = mongoose;
  
 const userSchema = new Schema(
     {
-      name: {
+      /*name: {
         type: String,
         trim: true,
         required: [true, 'name is required.'],
@@ -19,14 +19,35 @@ const userSchema = new Schema(
       passwordHash: {
         type: String,
         required: [true, 'Password is required.']
-      }
+      }*/
+      name: String,
+      email: String,
+      passwordHash: String
     },
-    {
-      timestamps: true
-    }
+    // {
+    //   timestamps: true
+    // }
   );
    
   module.exports = model('User', userSchema);
   
  
-module.exports = model('User', userSchema);
+/*const posts = [
+    {
+        userId: {type: Schema.Types.ObjectId, ref: 'User'},
+        title: "Cool Art",
+        created: {
+          type: Date,
+          default: Date.now
+        },
+        description: "Nice Art",
+        keywords: ["art","new","street"],
+        theme: "contemporary",
+        creator: "B-ri",
+      }
+  ];*/
+
+   /*Post.create(posts)
+  .then(postsFromDB => {
+    console.log(`Created ${postsFromDB.length} posts`);
+ */
