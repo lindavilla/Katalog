@@ -13,12 +13,12 @@ mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
         {   name: "Bri",
             email: "coolBrian@gmail.com",
             bio: "hey guys",
-            passwordHash: "supersecret",
+            password: "supersecret",
         },
         {   name: "Brian",
             email: "cool@gmail.com",
             bio: "hey guys",
-            passwordHash: "hello",
+            password: "hello",
     },
   ]
 

@@ -8,9 +8,12 @@
     <input type="email" name="email" id="email-input" />
     
     <label for="input-password">Password:</label>
-    <input type="password" name="passwordHash" id="password-input" />
+    <input type="password" name="password" id="password-input" />
 
     <button type="submit">Sign up</button>
+     {{#if errorMessage}}
+    <p class="error">{{errorMessage}}</p>
+  {{/if}}
 </form>
 <a href="/">Log in</a>
 </div>

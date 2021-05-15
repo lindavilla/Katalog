@@ -3,7 +3,7 @@ const { Schema, model } = mongoose;
  
 const userSchema = new Schema(
     {
-      /*name: {
+      name: {
         type: String,
         trim: true,
         required: [true, 'name is required.'],
@@ -12,17 +12,15 @@ const userSchema = new Schema(
       email: {
         type: String,
         required: [true, 'Email is required.'],
+        match: [/^\S+@\S+\.\S+$/, 'Please use a valid email address.'],
         unique: true,
         lowercase: true,
         trim: true
       },
-      passwordHash: {
+      password: {
         type: String,
         required: [true, 'Password is required.']
-      }*/
-      name: String,
-      email: String,
-      passwordHash: String
+      }
     },
     // {
     //   timestamps: true

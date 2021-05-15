@@ -10,6 +10,8 @@ const logger       = require('morgan');
 const path         = require('path');
 
 
+
+
 mongoose
   .connect('mongodb://localhost/katalog', {useNewUrlParser: true})
   .then(x => {
@@ -50,15 +52,16 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const indexRouter = require('./routes/index');
 //app.use('/', index);
 
-const userRouter = require('./routes/user.routes');
+const authRouter = require('./routes/auth.routes');
 //app.use('/', userRouter);
 
 const postsRoutes = require('./routes/post.routes');
 //app.use('/', postsRoutes);
+const sessionConfig = require('./configs/session.config')(app);
 
 // Routes middleware
-app.use('/', indexRouter); // <== already included
+//app.use('/', indexRouter); // <== already included
 //app.use('/', authRouter); // <== has to be added
-app.use('/',userRouter);
+app.use('/',authRouter);
 
 module.exports = app;
