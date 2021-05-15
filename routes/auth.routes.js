@@ -81,28 +81,25 @@ router.get('/', (req, res, next) => {
 
 
 router.post('/', (req, res, next) => {
-  console.log('SESSION =====> ', req.session);
+  //console.log('SESSION =====> ', req.session);
   const { email, password } = req.body;
-
   if (email === '' || password === '') {
     res.render('/', {
       errorMessage: 'Please enter email and password to login.'
     });
     return;
   }
- 
   const hashedPassword = bcryptjs.hashSync(password, salt);
-
   User.findOne({ email })
     .then(user => {
       if (!user) {
         res.render('/', { errorMessage: 'Cannot find email' });
         return;
-
       } else if (bcryptjs.compareSync(password, hashedPassword)) {
-        res.render('user-profile', { user });
-        //req.session.currentUser = user;
-        //res.redirect('user-profile');
+        req.session.currentUser = user;
+        console.log(req.session.currentUser);
+        // res.render('user-profile', { user });
+        res.redirect('/userProfile');
       } else {
         res.render('/', { errorMessage: 'Incorrect password.' });
       }
@@ -110,9 +107,23 @@ router.post('/', (req, res, next) => {
     .catch(error => next(error));
 });
 
+// Logout
+// Destroy
+
+// Routes that go in USERS.
+router.get('/userProfile', (req, res) => {
+  console.log(req.session.currentUser);
+  res.render('user-profile', {user: req.session.currentUser})
+  }
+);
 
 
-router.get('/userProfile', (req, res) => res.render('user-profile',{userInSession: req.session.currentUser}));
+router.get('/users/edit', (req, res) => {
+  const userId = req.session.currentUser;
+  // Llamar a la DB 
+  // Buscar por ID
 
+  res.render('user-edit', )
+})
 
 module.exports = router;
