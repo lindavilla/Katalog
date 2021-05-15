@@ -47,7 +47,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 // app.locals.title = 'Express - Generated with IronGenerator';
 
-const indexRouter = require('./routes/index');
+const userRouter = require('./routes/user');
 //app.use('/', index);
 const authRouter = require('./routes/auth.routes');
 //app.use('/', userRouter);
@@ -56,7 +56,7 @@ const postsRoutes = require('./routes/post.routes');
 
 
 // Routes middleware
-//app.use('/', indexRouter); // <== already included
+app.use('/', userRouter); // <== already included
 //app.use('/', authRouter); // <== has to be added
 app.use('/',authRouter);
 

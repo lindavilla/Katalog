@@ -1,8 +1,6 @@
 const mongoose = require('mongoose')
-//const express = require('express');
 const { Router } = require('express');
 const User = require('../models/user.model');
-//const router = express.Router();
 const router = new Router();
 const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
@@ -107,23 +105,13 @@ router.post('/', (req, res, next) => {
     .catch(error => next(error));
 });
 
-// Logout
-// Destroy
+/* ------------------------ POST Log Out ------------------------- */
 
-// Routes that go in USERS.
-router.get('/userProfile', (req, res) => {
-  console.log(req.session.currentUser);
-  res.render('user-profile', {user: req.session.currentUser})
-  }
-);
+router.post('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+});
 
 
-router.get('/users/edit', (req, res) => {
-  const userId = req.session.currentUser;
-  // Llamar a la DB 
-  // Buscar por ID
-
-  res.render('user-edit', )
-})
 
 module.exports = router;
