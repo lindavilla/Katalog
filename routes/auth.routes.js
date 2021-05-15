@@ -101,8 +101,8 @@ router.post('/', (req, res, next) => {
 
       } else if (bcryptjs.compareSync(password, hashedPassword)) {
         res.render('user-profile', { user });
-        req.session.currentUser = user;
-        res.redirect('user-profile');
+        //req.session.currentUser = user;
+        //res.redirect('user-profile');
       } else {
         res.render('/', { errorMessage: 'Incorrect password.' });
       }
