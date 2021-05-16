@@ -13,6 +13,17 @@ router.get('/userProfile', (req, res) => {
     }
   );
   
+  /*router.get('/userProfile', (req, res, next) => {
+    Post.find()
+    .populate('userId')
+    .then(dbPosts => {
+      res.render('user-profile', { posts: dbPosts });
+    })
+    .catch(error => {
+      console.log('Error while getting the posts from the DB: ', error);
+    next(error);
+      });
+  });*/
   
   router.get('/users/edit', (req, res) => {
     const userId = req.session.currentUser;

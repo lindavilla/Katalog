@@ -3,21 +3,21 @@
     <button>Logout</button>
   </form>
 </div>
-
+{{#each posts}}
+  <p>{{this.title}}</p>
+{{/each}}
 <p>My Posts</p>
-
 {{#if user}}
   <h2>Welcome, {{ user.name }}!</h2>
   <p>This is your profile page {{user.name}}!</p>
   <h3>Recent Posts</h3>
-  {{#each posts}}
-  <p>{{title}}</p>
-  {{/each}}
+  
   <button>
     <a href="/user-profile">Reload the page</a>
+  </button>
+  <button>
+    <a href="/userProfile/create">Create Post</a>
   </button>
 {{else}}
   <p>Still not logged in, sorry!</p>
 {{/if}}
-
-<button type="button">Create Post</button>
