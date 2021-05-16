@@ -8,7 +8,11 @@
 
 {{#if user}}
   <h2>Welcome, {{ user.name }}!</h2>
-  <p>This is your profile page my friend!</p>
+  <p>This is your profile page {{user.name}}!</p>
+  <h3>Recent Posts</h3>
+  {{#each posts}}
+  <p>{{title}}</p>
+  {{/each}}
   <button>
     <a href="/user-profile">Reload the page</a>
   </button>

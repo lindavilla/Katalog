@@ -51,13 +51,13 @@ const userRouter = require('./routes/user');
 //app.use('/', index);
 const authRouter = require('./routes/auth.routes');
 //app.use('/', userRouter);
-const postsRoutes = require('./routes/post.routes');
+const postRouter = require('./routes/post.routes');
 //app.use('/', postsRoutes);
 
 
 // Routes middleware
 app.use('/', userRouter); // <== already included
-//app.use('/', authRouter); // <== has to be added
+app.use('/', postRouter); // <== has to be added
 app.use('/',authRouter);
 
 module.exports = app;

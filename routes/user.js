@@ -7,8 +7,6 @@ const saltRounds = 10;
 const salt = bcryptjs.genSaltSync(saltRounds);
 
 
-
-
 router.get('/userProfile', (req, res) => {
     console.log(req.session.currentUser);
     res.render('user-profile', {user: req.session.currentUser})
