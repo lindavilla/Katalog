@@ -82,7 +82,7 @@ router.post('/', (req, res, next) => {
   //console.log('SESSION =====> ', req.session);
   const { email, password } = req.body;
   if (email === '' || password === '') {
-    res.render('/', {
+    res.render('index', {
       errorMessage: 'Please enter email and password to login.'
     });
     return;
@@ -91,7 +91,7 @@ router.post('/', (req, res, next) => {
   User.findOne({ email })
     .then(user => {
       if (!user) {
-        res.render('/', { errorMessage: 'Cannot find email' });
+        res.render('index', { errorMessage: 'Cannot find email' });
         return;
       } else if (bcryptjs.compareSync(password, hashedPassword)) {
         req.session.currentUser = user;
@@ -99,7 +99,7 @@ router.post('/', (req, res, next) => {
         // res.render('user-profile', { user });
         res.redirect('/userProfile');
       } else {
-        res.render('/', { errorMessage: 'Incorrect password.' });
+        res.render('index', { errorMessage: 'Incorrect password.' });
       }
     })
     .catch(error => next(error));

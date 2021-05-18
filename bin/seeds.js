@@ -10,13 +10,14 @@ mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
   useUnifiedTopology: true
 });
 
-  /*const users = [
-        {   name: "Bri",
-            email: "coolBrian@gmail.com",
-            bio: "hey guys",
-            password: "supersecret",
+/*const users = [
+        {   name: "eleanor",
+            email: "ele@al.com",
+            bio: "f",
+            password: "No!1dfghuyt",
         },
-        {   name: "Brian",
+        
+        {   name: "hey",
             email: "cool@gmail.com",
             bio: "hey guys again",
             password: "hello",
@@ -35,13 +36,13 @@ mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
   */
 
   const posts = [
-    {   userId: "60a0f987cd4c336369768d18",
+    {   userId: "60a40bff9d494aee78e03155",
         title: "The Mona Lisa",
         description: "Chick that sorta smiles but not really.",
         theme: "painting",
         creator: "Leonardo da Vinci",
     },
-    {   userId: "60a0f987cd4c336369768d18",
+    {   userId: "60a40bff9d494aee78e03155",
         title: "David",
         description: "Big naked dude statue.",
         theme: "sculpture",

@@ -8,8 +8,10 @@ const salt = bcryptjs.genSaltSync(saltRounds);
 
 
 router.get('/userProfile', (req, res) => {
-    console.log(req.session.currentUser);
-    res.render('user-profile', {user: req.session.currentUser})
+    const user = req.session.currentUser;
+    const posts = user.posts;
+    const data = {posts};
+    res.render('user-profile', {data})
     }
   );
   
@@ -25,13 +27,16 @@ router.get('/userProfile', (req, res) => {
       });
   });*/
   
-  router.get('/users/edit', (req, res) => {
+  router.get('/users/:id/edit', (req, res) => {
     const userId = req.session.currentUser;
-    // Llamar a la DB 
-    // Buscar por ID
+    User.findById(userId)
+    .then()
   
-    res.render('user-edit', )
+    res.render('user-edit', {data})
   })
   
+
+//POST of update
+
   module.exports = router;
   
