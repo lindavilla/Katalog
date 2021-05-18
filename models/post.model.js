@@ -3,7 +3,6 @@ const { Schema, model } = mongoose;
  
 const postSchema = new Schema(
   {
-    
     userId: {
       type: Schema.Types.ObjectId, ref: 'User'
     },

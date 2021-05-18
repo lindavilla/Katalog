@@ -13,8 +13,9 @@ router.get('/userProfile/create', (req, res) => res.render('create-post'));
 //CREATE NEW POST
 router.post('/userProfile/create', (req, res) => {
   //console.log(req.body);
-  const { userId, title, date, description, keywords, theme, creator } = req.body;
-
+  const { title, date, description, keywords, theme, creator } = req.body;
+  const userId = req.session.currentUser._id;
+  console.log(req.session.currentUser);
   Post.create({ userId, title, date, description, keywords, theme, creator })
   .then(dbPost => {
     return User.findByIdAndUpdate(userId, { $push: { posts: dbPost._id } });

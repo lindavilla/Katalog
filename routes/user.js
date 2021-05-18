@@ -8,12 +8,9 @@ const salt = bcryptjs.genSaltSync(saltRounds);
 
 
 router.get('/userProfile', (req, res) => {
-    const user = req.session.currentUser;
-    const posts = user.posts;
-    const data = {posts};
-    res.render('user-profile', {data})
-    }
-  );
+  console.log(req.session.currentUser);
+  res.render('user-profile', {user: req.session.currentUser})
+});
   
   /*router.get('/userProfile', (req, res, next) => {
     Post.find()
