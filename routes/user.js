@@ -41,7 +41,7 @@ router.post('/userProfile/edit', (req, res) => {
   const { name, email, password } = req.body;
  
   User.findByIdAndUpdate(userId, { name, email, password }, { new: true })
-    .then(updatedUser => res.redirect('/userProfile', {updatedUser: req.session.currentUser._id}))
+    .then(updatedUser => res.redirect('/userProfile'))
     .catch(error => next(error));
 });
 
