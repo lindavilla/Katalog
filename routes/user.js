@@ -24,7 +24,7 @@ router.get('/userProfile', (req, res) => {
   
   
 //GET of Update user
-router.get('/usersProfile/:id/edit', (req, res) => {
+router.get('/userProfile/edit', (req, res) => {
   const userId = req.session.currentUser;
   User.findById(userId)
   .then(userToEdit => {
@@ -36,7 +36,7 @@ router.get('/usersProfile/:id/edit', (req, res) => {
   
 
 //POST of update user
-router.post('/userProfile/:id/edit', (req, res) => {
+router.post('/userProfile/edit', (req, res) => {
   const userId = req.session.currentUser;
   const { name, email, password } = req.body;
  
