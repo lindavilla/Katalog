@@ -4,8 +4,8 @@ const User = require('../models/user.model');
 const router = new Router();
 const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
-const salt = bcryptjs.genSaltSync(saltRounds);
-
+//const salt = bcryptjs.genSaltSync(saltRounds);
+const salt = "$2a$10$vcauq0AYOQoBgtvfBybnt.";
 
 
 
@@ -71,7 +71,12 @@ router.post('/sign-up', (req, res, next) => {
 
 
 router.get('/', (req, res, next) => {
+  if (!req.session.currentUser) { 
   res.render('index');
+  }
+  else {
+    res.redirect('/userProfile');
+  }
 });
 
 
@@ -88,18 +93,21 @@ router.post('/', (req, res, next) => {
     return;
   }
   const hashedPassword = bcryptjs.hashSync(password, salt);
+
   User.findOne({ email })
     .then(user => {
+      console.log(hashedPassword, user.password)
       if (!user) {
         res.render('index', { errorMessage: 'Cannot find email' });
         return;
-      } else if (bcryptjs.compareSync(password, hashedPassword)) {
+      } else if (user.password === hashedPassword) {
         req.session.currentUser = user;
+        console.log("User logged-in:");
         console.log(req.session.currentUser);
         // res.render('user-profile', { user });
         res.redirect('/userProfile');
       } else {
-        res.render('index', { errorMessage: 'Incorrect password.' });
+        res.render('index', { errorMessage: 'Incorrect password' });
       }
     })
     .catch(error => next(error));

@@ -21,12 +21,12 @@ const userSchema = new Schema(
         type: String,
         required: [true, 'Password is required.']
       },
-      posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }]
-      },
-    {
-       timestamps: true
-    }
-  );
+      posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
+    },
+      {
+      timestamps: true
+      }
+    );
    
   module.exports = model('User', userSchema);
   

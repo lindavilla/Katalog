@@ -24,10 +24,12 @@ router.post('/userProfile/create', (req, res) => {
     .catch(error => console.log(`Error while creating a new post:`, error));
 });
 
-//READ(LIST) POSTS ON USERPROFILE PAGE
+//SHOW POSTS ON USERPROFILE PAGE
 router.get('/userProfile', (req, res, next) => {
-    Post.find()
-    .populate('userId')
+
+  /*
+    User.find()
+    .populate('posts')
     .then(dbPosts => {
       res.render('user-profile', { posts: dbPosts });
     })
@@ -35,7 +37,7 @@ router.get('/userProfile', (req, res, next) => {
       console.log('Error while getting the posts from the DB: ', error);
     next(error);
       });
-  });
+    */});
 
   //GET update post
 
