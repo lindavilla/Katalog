@@ -4,8 +4,8 @@ const User = require('../models/user.model');
 const router = new Router();
 const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
-//const salt = bcryptjs.genSaltSync(saltRounds);
-const salt = "$2a$10$vcauq0AYOQoBgtvfBybnt.";
+const salt = bcryptjs.genSaltSync(saltRounds);
+//const salt = "$2a$10$vcauq0AYOQoBgtvfBybnt.";
 
 
 
@@ -51,7 +51,7 @@ router.post('/sign-up', (req, res, next) => {
     })
     .then(userFromDB => {
       console.log('Newly created user is: ', userFromDB);
-      res.redirect('/userProfile');
+      res.redirect('/');
   })
   .catch(error => {
   
