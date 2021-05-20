@@ -37,5 +37,11 @@ router.get('/userProfile', (req, res, next) => {
       });
   });
 
+  //GET update post
+
+  //POST update post
+
+  //Delete post
+
 module.exports = router;
 

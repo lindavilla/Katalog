@@ -5,23 +5,30 @@
 </div>
 
 
-
-<p>My Posts</p>
 {{#if user}}
+<p>My Posts</p>
   <h2>Welcome, {{ user.name }}!</h2>
   <p>This is your profile page {{user.name}}!</p>
   <h3>Recent Posts</h3>
   {{#each user.posts}}
-  <p>{{this.title}}</p>
+  <p>{{title}}</p>
+  <button>
+    <a href="/userProfile/{{posts.id}}/edit">Edit Post</a>
+  </button>
 {{/each}}
   
   <button>
-    <a href="/user-profile">Reload the page</a>
+    <a href="/userProfile">Reload the page</a>
   </button>
+  <button>
   <a href="/userProfile/{{user.id}}/edit">Edit</a>
+  </button>
   <button>
     <a href="/userProfile/create">Create Post</a>
   </button>
+  <form action="/userProfile/{{user.id}}/delete" method="POST"> 
+    <button>Delete</button>
+  </form>
 {{else}}
   <p>Still not logged in, sorry!</p>
 {{/if}}

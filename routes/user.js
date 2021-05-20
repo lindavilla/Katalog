@@ -12,28 +12,36 @@ router.get('/userProfile', (req, res) => {
   res.render('user-profile', {user: req.session.currentUser})
 });
   
-  /*router.get('/userProfile', (req, res, next) => {
-    Post.find()
-    .populate('userId')
-    .then(dbPosts => {
-      res.render('user-profile', { posts: dbPosts });
-    })
-    .catch(error => {
-      console.log('Error while getting the posts from the DB: ', error);
-    next(error);
-      });
-  });*/
   
-  router.get('/users/:id/edit', (req, res) => {
-    const userId = req.session.currentUser;
-    User.findById(userId)
-    .then()
-  
-    res.render('user-edit', {data})
+//GET of Update user
+router.get('/usersProfile/:id/edit', (req, res) => {
+  const userId = req.session.currentUser;
+  User.findById(userId)
+  .then(userToEdit => {
+    // console.log(userToEdit);
+  res.render('user-edit', {user: userToEdit});
   })
+  .catch(error => next(error));
+})
   
 
-//POST of update
+//POST of update user
+router.post('/userProfile/:id/edit', (req, res) => {
+  const userId = req.session.currentUser;
+  const { name, email, password } = req.body;
+ 
+  User.findByIdAndUpdate(userId, { name, email, password }, { new: true })
+    .then(updatedUser => res.redirect(`/userProfile`, {updatedUser: req.session.currentUser}))
+    .catch(error => next(error));
+});
 
-  module.exports = router;
+//Delete User
+router.post('/userProfile/:id/delete', (req, res) => {
+  const userId = req.session.currentUser; 
+  User.findByIdAndDelete(userId)
+    .then(() => res.redirect('/'))
+    .catch(error => next(error));
+});
+
+module.exports = router;
   

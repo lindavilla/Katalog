@@ -1,13 +1,14 @@
-<form action="/userProfile" method="POST">
+<h1>Edit your profile information</h1>
+<form action="/userProfile{{user.id}}/edit" method="POST">
 
   <label for="name-input">Name:</label>
-  <input type="text" name="name" id="name-input" />
+  <input type="text" name="name" id="name-input" value="{{user.name}}" />
 
   <label for="email-input">Email:</label>
-  <input type="email" name="email" id="email-input" />
+  <input type="email" name="email" id="email-input" value="{{user.email}}" />
 
   <label for="password-input">Password:</label>
-  <input type="password" name="password" id="password-input" />
+  <input type="password" name="password" id="password-input" value="{{user.password}}" />
 
   <button type="submit">update</button>
 </form>
