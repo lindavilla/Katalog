@@ -46,8 +46,8 @@ router.post('/userProfile/edit', (req, res) => {
 });
 
 //Delete User
-router.post('/userProfile/:id/delete', (req, res) => {
-  const userId = req.session.currentUser; 
+router.post('/userProfile/delete', (req, res) => {
+  const userId = req.params; 
   User.findByIdAndDelete(userId)
     .then(() => res.redirect('/'))
     .catch(error => next(error));

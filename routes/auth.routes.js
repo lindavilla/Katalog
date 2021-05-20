@@ -21,8 +21,9 @@ router.get('/sign-up', (req, res,) =>
 
 
 router.post('/sign-up', (req, res, next) => {
-  console.log('The form data: ', req.body)
+  
   const {name, email, password} = req.body;
+  console.log('The form data: ', req.body)
   
   if (!name || !email || !password) {
     res.render('sign-up', { errorMessage: 'All fields are mandatory. Please provide your username, email and password.' });
@@ -96,7 +97,7 @@ router.post('/', (req, res, next) => {
 
   User.findOne({ email })
     .then(user => {
-      console.log(hashedPassword, user.password)
+      //console.log(hashedPassword, user.password)
       if (!user) {
         res.render('index', { errorMessage: 'Cannot find email' });
         return;

@@ -26,9 +26,9 @@
   <button>
     <a href="/userProfile/create">Create Post</a>
   </button>
-  <form action="/userProfile/{{user.id}}/delete" method="POST"> 
+  <form action="/userProfile/delete" method="POST"> 
     <button>Delete</button>
   </form>
 {{else}}
-  <p>Still not logged in, sorry!</p>
+  <p>Still not logged in, sorry!</p> 
 {{/if}}
