@@ -29,7 +29,6 @@ router.post('/sign-up', (req, res, next) => {
     res.render('sign-up', { errorMessage: 'All fields are mandatory. Please provide your username, email and password.' });
     return;
   }
-
   const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
   if (!regex.test(password)) {
     res
@@ -37,7 +36,6 @@ router.post('/sign-up', (req, res, next) => {
       .render('sign-up', { errorMessage: 'Password needs to have at least 6 characters and must contain at least one number, one lowercase and one uppercase letter.' });
     return;
   }
-
   const hashedPassword = bcryptjs.hashSync(password, salt);
   console.log(`Password hash: ${hashedPassword}`);
   
@@ -54,7 +52,6 @@ router.post('/sign-up', (req, res, next) => {
       res.redirect('/');
   })
   .catch(error => {
-  
     if (error instanceof mongoose.Error.ValidationError) {
       res.status(500).render('sign-up', { errorMessage: error.message });
     } else if (error.code === 11000) {
@@ -73,9 +70,8 @@ router.post('/sign-up', (req, res, next) => {
 
 router.get('/', (req, res, next) => {
   if (!req.session.currentUser) { 
-  res.render('index');
-  }
-  else {
+  return res.render('index');
+  } else {
     res.redirect('/userProfile');
   }
 });
@@ -93,25 +89,26 @@ router.post('/', (req, res, next) => {
     });
     return;
   }
-  const hashedPassword = bcryptjs.hashSync(password, salt);
-
+  //const hashedPassword = bcryptjs.hashSync(password, salt);
   User.findOne({ email })
     .then(user => {
       //console.log(hashedPassword, user.password)
       if (!user) {
-        res.render('index', { errorMessage: 'Cannot find email' });
-        return;
-      } else if (user.password === hashedPassword) {
-        req.session.currentUser = user;
-        console.log("User logged-in:");
-        console.log(req.session.currentUser);
-        // res.render('user-profile', { user });
-        res.redirect('/userProfile');
+        return res.render('index', { errorMessage: 'Cannot find email' });
+      } else if (bcryptjs.compareSync(password, user.password)) {
+        return req.session.currentUser = user;
       } else {
         res.render('index', { errorMessage: 'Incorrect password' });
       }
     })
-    .catch(error => next(error));
+    .then(()=>{
+      console.log("User logged-in:");
+      console.log(req.session.currentUser);
+      // res.render('user-profile', { user });
+      return res.redirect('/userProfile');
+    })
+    .catch(error => 
+    next(error));
 });
 
 /* ------------------------ POST Log Out ------------------------- */
@@ -120,7 +117,5 @@ router.post('/logout', (req, res) => {
   req.session.destroy();
   res.redirect('/');
 });
-
-
 
 module.exports = router;
