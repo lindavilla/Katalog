@@ -43,13 +43,13 @@ router.post('/userProfile/edit', (req, res) => {
   const { name, email, password } = req.body;
  
   User.findByIdAndUpdate(userId, { name, email, password }, { new: true })
-    .then(updatedUser => res.redirect('/userProfile'))
+    .then(() => res.redirect('/userProfile'))
     .catch(error => next(error));
 });
 
 //Delete User
 router.post('/userProfile/delete', (req, res) => {
-  const userId = req.params; 
+  const userId = req.session.currentUser._id; 
   User.findByIdAndDelete(userId)
     .then(() => res.redirect('/'))
     .catch(error => next(error));

@@ -51,6 +51,14 @@ router.get('/userProfile', (req, res, next) => {
   })
 
   //POST update post
+  router.post('/userProfile/:id/edit', (req, res) => {
+    const postId = req.session.currentUser.posts._id;
+    const { title, description, theme } = req.body;
+   
+    Post.findByIdAndUpdate(postId, { title, description, theme }, { new: true })
+      .then(() => res.redirect('/userProfile'))
+      .catch(error => next(error));
+  });
 
   //Delete post
 

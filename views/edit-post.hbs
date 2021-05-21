@@ -2,7 +2,7 @@
 <form action="/userProfile/{{posts.id}}/edit" method="POST">
 
   <label for="title-input">Title:</label>
-  <input type="text" name="title" id="title-input" value="{{posts.title}}" />
+  <input type="text" name="title" id="title-input" value="{{user.posts.title}}" />
 
   <label for="description-input">Description:</label>
   <input type="text" name="description" id="description-input" value="{{posts.description}}" />
