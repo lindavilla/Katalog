@@ -40,6 +40,15 @@ router.get('/userProfile', (req, res, next) => {
     */});
 
   //GET update post
+  router.get('/userProfile/:id/edit', (req, res) => {
+    const postId = req.session.currentUser.posts._id;
+    Post.findById(postId)
+    .then(postToEdit => {
+      // console.log(postToEdit);
+    res.render('edit-post', {post: postToEdit});
+    })
+    .catch(error => next(error));
+  })
 
   //POST update post
 
