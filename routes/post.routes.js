@@ -24,20 +24,6 @@ router.post('/userProfile/create', (req, res) => {
     .catch(error => console.log(`Error while creating a new post:`, error));
 });
 
-//SHOW POSTS ON USERPROFILE PAGE
-router.get('/userProfile', (req, res, next) => {
-
-  /*
-    User.find()
-    .populate('posts')
-    .then(dbPosts => {
-      res.render('user-profile', { posts: dbPosts });
-    })
-    .catch(error => {
-      console.log('Error while getting the posts from the DB: ', error);
-    next(error);
-      });
-    */});
 
   //GET update post
   router.get('/userProfile/:id/edit', (req, res) => {
