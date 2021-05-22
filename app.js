@@ -58,6 +58,6 @@ const postRouter = require('./routes/post.routes');
 // Routes middleware
 app.use('/', userRouter); // <== already included
 app.use('/', postRouter); // <== has to be added
-app.use('/',authRouter);
+app.use('/', authRouter);
 
 module.exports = app;

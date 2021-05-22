@@ -40,19 +40,21 @@ router.get('/userProfile', (req, res, next) => {
     */});
 
   //GET update post
-  router.get('/userProfile/:id/edit', (req, res) => {
-    const postId = req.session.currentUser.posts._id;
+  router.get('/userProfile/:id/edit', (req, res, next) => {
+    // const postId = req.session.currentUser.posts[0]._id;
+    const postId = req.params.id;
     Post.findById(postId)
     .then(postToEdit => {
-      // console.log(postToEdit);
-    res.render('edit-post', {post: postToEdit});
+      console.log(postToEdit);
+      return res.render('edit-post', { post: postToEdit });
     })
     .catch(error => next(error));
   })
 
   //POST update post
-  router.post('/userProfile/:id/edit', (req, res) => {
-    const postId = req.session.currentUser.posts._id;
+  router.post('/userProfile/:id/edit', (req, res, next) => {
+    // const postId = req.session.currentUser.posts._id;
+    const postId = req.params.id;
     const { title, description, theme } = req.body;
    
     Post.findByIdAndUpdate(postId, { title, description, theme }, { new: true })

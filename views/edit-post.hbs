@@ -1,14 +1,14 @@
 <h1>Edit your post</h1>
-<form action="/userProfile/{{posts.id}}/edit" method="POST">
+<form action="/userProfile/{{post._id}}/edit" method="POST">
 
   <label for="title-input">Title:</label>
-  <input type="text" name="title" id="title-input" value="{{user.posts.title}}" />
+  <input type="text" name="title" id="title-input" value="{{post.title}}" />
 
   <label for="description-input">Description:</label>
-  <input type="text" name="description" id="description-input" value="{{posts.description}}" />
+  <input type="text" name="description" id="description-input" value="{{post.description}}" />
 
   <label for="theme-input">Theme:</label>
-  <input type="text" name="theme" id="theme-input" value="{{posts.theme}}" />
+  <input type="text" name="theme" id="theme-input" value="{{post.theme}}" />
 
   <button type="submit">update</button>
 </form>

@@ -8,10 +8,10 @@ const salt = bcryptjs.genSaltSync(saltRounds);
 
 
 router.get('/userProfile', (req, res) => {
-  console.log(req.session.currentUser);
-  if(!req.session.currentUser) {
-    console.log("Error, there is no user in session");
-  } else {
+  // console.log(req.session.currentUser);
+  // if(!req.session.currentUser) {
+  //   console.log("Error, there is no user in session");
+  // } else {
     User.findById(req.session.currentUser._id)
       .populate('posts')
       .then(dbUser => {
@@ -21,7 +21,6 @@ router.get('/userProfile', (req, res) => {
         console.log('Error while getting the posts from the DB: ', error);
       next(error);
         });
-    }
 });
   
   
@@ -51,6 +50,10 @@ router.post('/userProfile/edit', (req, res) => {
 router.post('/userProfile/delete', (req, res) => {
   const userId = req.session.currentUser._id; 
   User.findByIdAndDelete(userId)
+    .then(() => {
+      req.session.destroy();
+      return;
+    })
     .then(() => res.redirect('/'))
     .catch(error => next(error));
 });

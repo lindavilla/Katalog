@@ -7,18 +7,13 @@ const saltRounds = 10;
 const salt = bcryptjs.genSaltSync(saltRounds);
 //const salt = "$2a$10$vcauq0AYOQoBgtvfBybnt.";
 
-
-
 /* ----------------------- GET SIGN UP -------------------------------*/
-
-
 
 router.get('/sign-up', (req, res,) => 
   res.render('sign-up'));
 
 
 /* -----------------------POST SIGN UP -------------------------------*/
-
 
 router.post('/sign-up', (req, res, next) => {
   
@@ -66,19 +61,17 @@ router.post('/sign-up', (req, res, next) => {
 
 /* ------------------------ GET Log In ------------------------- */
 
-
-
 router.get('/', (req, res, next) => {
+  //console.log(req.session.currentUser)
   if (!req.session.currentUser) { 
-  return res.render('index');
-  } else {
+    res.render('index');
+    return;
+  } else { 
     res.redirect('/userProfile');
   }
 });
 
-
 /* ------------------------ POST Log In ------------------------- */
-
 
 router.post('/', (req, res, next) => {
   //console.log('SESSION =====> ', req.session);
@@ -100,6 +93,7 @@ router.post('/', (req, res, next) => {
       } else {
         res.render('index', { errorMessage: 'Incorrect password' });
       }
+      return;
     })
     .then(()=>{
       console.log("User logged-in:");

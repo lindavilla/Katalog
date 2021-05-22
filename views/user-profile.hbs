@@ -13,9 +13,9 @@
   {{#each user.posts}}
   <p>{{title}}</p>
   <button>
-    <a href="/userProfile/{{id}}/edit">Edit Post</a>
+    <a href="/userProfile/{{_id}}/edit">Edit Post</a>
   </button>
-{{/each}}
+  {{/each}}
   
   <button>
     <a href="/userProfile">Reload the page</a>
@@ -31,4 +31,5 @@
   </form>
 {{else}}
   <p>Still not logged in, sorry!</p> 
+  <a href="/">Log in to see your profile</a>
 {{/if}}
