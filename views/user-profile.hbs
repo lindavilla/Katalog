@@ -8,7 +8,6 @@
 {{#if user}}
 <p>My Posts</p>
   <h2>Welcome, {{ user.name }}!</h2>
-  <p>This is your profile page {{user.name}}!</p>
   <h3>Recent Posts</h3>
   {{#each user.posts}}
   <p>{{title}}</p>
@@ -21,13 +20,13 @@
     <a href="/userProfile">Reload the page</a>
   </button>
   <button>
-  <a href="/userProfile/edit">Edit</a>
+  <a href="/userProfile/edit">Edit Profile</a>
   </button>
-  <button>
+  {{!-- <button>
     <a href="/userProfile/create">Create Post</a>
-  </button>
+  </button> --}}
   <form action="/userProfile/delete" method="POST"> 
-    <button>Delete</button>
+    <button>Delete Profile</button>
   </form>
   <nav class="nav">
     <a class="nav__link" href="/userProfile">
