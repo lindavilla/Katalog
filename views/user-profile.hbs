@@ -29,6 +29,26 @@
   <form action="/userProfile/delete" method="POST"> 
     <button>Delete</button>
   </form>
+  <nav class="nav">
+    <a class="nav__link" href="/userProfile">
+      <span class="material-icons nav__icon">home</span>
+      <span class="nav__text">Home</span>
+    </a>
+    <a class="nav__link" href="/userProfile/edit">
+      <span class="material-icons nav__icon">edit</span>
+      <span class="nav__text">Edit profile</span>
+    </a>
+    <a class="nav__link" href="/userProfile/create">
+      <span class="material-icons nav__icon">add</span>
+      <span class="nav__text">Create post</span>
+    </a>
+    <form id="logout-form" action="/logout" method="POST">
+      <a class="nav__link" href="/userProfile">
+        <span class="material-icons nav__icon">logout</span>
+        <span class="nav__text">Logout</span>
+      </a>
+    </form>
+  </nav>
 {{else}}
   <p>Still not logged in, sorry!</p> 
   <a href="/">Log in to see your profile</a>
