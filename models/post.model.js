@@ -31,6 +31,9 @@ const postSchema = new Schema(
     creator: {
       type: String,
       trim: true
+    },
+    imageUrl : {
+      type: String
     }
   });
  

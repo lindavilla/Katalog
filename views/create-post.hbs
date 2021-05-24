@@ -1,6 +1,6 @@
 
 <h1>Create a post!</h1>
-<form action="/userProfile/create" method="POST">
+<form action="/userProfile/create" method="POST" enctype="multipart/form-data">
 
   <label for="title-input">Title:</label>
   <input type="text" name="title" id="title-input" />
@@ -10,6 +10,9 @@
 
   <label for="theme-input">Theme:</label>
   <input type="text" name="theme" id="theme-input" />
+
+  <label for ="image-input">Image:</label>
+  <input type="file" name="image" id="image-input" />
 
   <button type="submit">Create!</button>
 </form>

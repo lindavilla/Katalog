@@ -11,6 +11,7 @@
   <h3>Recent Posts</h3>
   {{#each user.posts}}
   <p>{{title}}</p>
+  <img src="{{imageUrl}}" class="card-img-top" alt="{{title}}">
   <button>
     <a href="/userProfile/{{_id}}/edit">Edit Post</a>
   </button>

@@ -5,7 +5,7 @@ const router = new Router();
 const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
 const salt = bcryptjs.genSaltSync(saltRounds);
-
+const fileUploader = require('../configs/cloudinary.config');
 
 router.get('/userProfile', (req, res) => {
   // console.log(req.session.currentUser);
