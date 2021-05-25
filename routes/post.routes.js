@@ -12,16 +12,15 @@ const fileUploader = require('../configs/cloudinary.config');
 router.get('/userProfile/create', (req, res) => res.render('create-post')); 
 
 //CREATE NEW POST
-router.post('/userProfile/create',fileUploader.single('image'), (req, res) => {
-  //console.log(req.body);
+router.post('/userProfile/create', fileUploader.single('image'), (req, res) => {
   const { title, date, description, keywords, theme, creator } = req.body;
   const userId = req.session.currentUser._id;
-  console.log(req.session.currentUser);
-  Post.create({ userId, title, date, description, keywords, theme, creator, imageUrl: req.file.path })
+  const file = req.file.path;
+  Post.create({ userId, title, date, description, keywords, theme, creator, imageUrl: file })
   .then(dbPost => {
     return User.findByIdAndUpdate(userId, { $push: { posts: dbPost._id } });
   })
-    .then(() => res.render('/userProfile'))
+    .then(() => res.redirect('/userProfile'))
     .catch(error => console.log(`Error while creating a new post:`, error));
 });
 
