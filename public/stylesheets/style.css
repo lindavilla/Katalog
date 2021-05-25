@@ -137,13 +137,13 @@ a:visited {
   position: fixed;
   bottom: 0;
   width: 100%;
-  display: flex;
 }
 
 .main__info-links-ul {
   list-style: none;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  padding: 0;
 }
 
 .main__info-links-a {
@@ -163,17 +163,13 @@ a:visited {
 }
 
 .main__userProfile-post-img {
-  width: 30%;
-  margin: 5px 0px;
+  width: 75%;
+  margin: 5px 0;
 }
 
 .main__userProfile-edit-post {
   text-decoration: none;
   color: black;
-}
-
-.hello {
-  color: green;
 }
 
 
