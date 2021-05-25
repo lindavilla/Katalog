@@ -107,7 +107,7 @@ router.post('/', (req, res, next) => {
 
 /* ------------------------ POST Log Out ------------------------- */
 
-router.post('/logout', (req, res) => {
+router.get('/logout', (req, res) => {
   req.session.destroy();
   res.redirect('/');
 });
