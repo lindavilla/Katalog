@@ -20,6 +20,12 @@ body {
 
 h1 {
   font-size: 2.1rem;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 a:visited { 
@@ -27,16 +33,20 @@ a:visited {
 }
 
 .btn {
-  background-color: lightgrey;
-  color: black;
+  background-color: darkgray;
+  color: white;
   border-radius: 50px;
-  padding: 10px 25px;
+  padding: 15px 40px;
   border: none;
   cursor: pointer;
 }
 
-/*---------NAV BAR CSS---------*/
-.top {
+.btn__cta {
+  background-color: rgb(146,197,255);
+  color: white;
+}
+
+.body__logo-bar {
   position: fixed;
   top: 0;
   width: 100%;
@@ -47,6 +57,8 @@ a:visited {
   justify-content: center;
   overflow-x: auto;
 }
+
+/*---------NAV BAR CSS---------*/
 
 .nav {
   position: fixed;
@@ -83,20 +95,6 @@ a:visited {
   font-size: 18px;
 }
 
-.nav__btn-logout {
-  font-size: 100%;
-  font-family: inherit;
-  border: 0;
-  padding: 0;
-  font-size: .81rem;
-  color: gray;
-  text-decoration: none;
-  -webkit-tap-highlight-color: transparent;
-  transition: background-color 0.1s ease-in-out;
-  background-color: white;
-  cursor: pointer;
-}
-
 /*INDEX & SIGN-UP CSS*/
 
 .main__home-div {
@@ -117,8 +115,9 @@ a:visited {
 
 .main__home-div-input {
   margin: 10px;
-  width: 70%;
+  width: 90%;
   border: 1px gray solid;
+  height: 30px;
 }
 
 .main__home-div-a {
@@ -134,10 +133,26 @@ a:visited {
   outline: none; 
 }
 
-.btn__cta {
-  background-color: rgb(204,153,204);
+.main__info-links {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+}
+
+.main__info-links-ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.main__info-links-a {
+  text-decoration: none;
   color: white;
-  cursor: pointer;
+}
+
+.main__info-links-li {
+  padding: 0px 10px;
 }
 
 /*userProfile CSS*/
