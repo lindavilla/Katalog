@@ -1,104 +1,161 @@
+/*GLOBAL CSS*/
 html {
-      overflow: hidden;
+      /*overflow: hidden;*/
       font-size: 16px;
-    }
-    a:visited { 
-      outline: none; 
-    }
+}
 
-    body {
-      background-color: rgb(204,153,204);
-      padding: 50px;
-      font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-      height: 100vh;
-      width: 100vw;
-      margin: 0 0 55px 0;
-    }
+body {
+  background-color: rgb(204,153,204);
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100vh;
+  width: 100vw;
+  margin: 40px 0 55px 0;
+}
 
-    .nav {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      height: 55px;
-      box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-      background-color: #FFF;
-      display: flex;
-      overflow-x: auto;
-    }
+.main {
+  max-width: 80vw;
+  margin: auto;
+  padding-top: 20%;
+}
 
-    .nav__link {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      flex-grow: 1;
-      min-width: 50px;
-      overflow: hidden;
-      white-space: nowrap;
-      font-size: .81rem;
-      color: gray;
-      text-decoration: none;
-      -webkit-tap-highlight-color: transparent;
-      transition: background-color 0.1s ease-in-out;
-    }
+h1 {
+  font-size: 2.1rem;
+}
 
-  .nav__link:hover {
-    background-color: lightgrey;
-  }
+a:visited { 
+  outline: none; 
+}
 
-  .nav__icon {
-    font-size: 18px;
-  }
+.btn {
+  background-color: lightgrey;
+  color: black;
+  border-radius: 50px;
+  padding: 10px 25px;
+  border: none;
+  cursor: pointer;
+}
 
-    h1 {
-      font-size: 2.1rem;
-      letter-spacing: 6.15%;
-     }
-    .container {
-      width:80%;
-      
-    }
-    .home-page {
-      background-color: white;
-      border: 2px solid gray;
-      border-radius: 10px;
-      padding: 5px;
-      height: 40%;
-    
-    }
+/*---------NAV BAR CSS---------*/
+.top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  background-color: #FFF;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
 
-    .home-page form {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      margin: 10px;    
-    }
-    
-    .home-page input {
-      margin: 10px;
-      width: 70%;
-      border: 1px gray solid;
-    }
+.nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 55px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  background-color: #FFF;
+  display: flex;
+  overflow-x: auto;
+}
 
-    .home-page a {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      margin: 5px;
-      text-decoration: none;
-      font-size: 13px;
-  }
-  
-  .btn{
-    background-color: rgb(204,153,204);
-    color: white;
-    border-radius: 50px;
-    padding: 10px 25px;
-    border: none;
-  }
-   
+.nav__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  min-width: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: .81rem;
+  color: gray;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.1s ease-in-out;
+}
 
+.nav__link:hover {
+  background-color: lightgrey;
+}
+
+.nav__icon {
+  font-size: 18px;
+}
+
+.nav__btn-logout {
+  font-size: 100%;
+  font-family: inherit;
+  border: 0;
+  padding: 0;
+  font-size: .81rem;
+  color: gray;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.1s ease-in-out;
+  background-color: white;
+  cursor: pointer;
+}
+
+/*INDEX & SIGN-UP CSS*/
+
+.main__home-div {
+  background-color: white;
+  border: 2px solid gray;
+  border-radius: 10px;
+  padding: 5px;
+  height: 40%;
+}
+
+.main__home-div-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px;    
+}
+
+.main__home-div-input {
+  margin: 10px;
+  width: 70%;
+  border: 1px gray solid;
+}
+
+.main__home-div-a {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 5px;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.main__home-div-a:visited { 
+  outline: none; 
+}
+
+.btn__cta {
+  background-color: rgb(204,153,204);
+  color: white;
+  cursor: pointer;
+}
+
+/*userProfile CSS*/
+.main__userProfile {
+  max-width: 80vw;
+  margin: auto;
+  padding: 55px 0;
+}
+
+.main__userProfile-post-img {
+  width: 30%;
+  margin: 5px 0px;
+}
+
+.main__userProfile-edit-post {
+  text-decoration: none;
+  color: black;
+}
 
 
 

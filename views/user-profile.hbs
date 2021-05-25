@@ -1,34 +1,18 @@
-<div>
-  <form id="logout-form" action="/logout" method="POST">
-    <button>Logout</button>
-  </form>
-</div>
-
-
+<main class="main__userProfile">
 {{#if user}}
-<p>My Posts</p>
-  <h2>Welcome, {{ user.name }}!</h2>
-  <h3>Recent Posts</h3>
+  <h1>Welcome, {{ user.name }}!</h2>
+  <h2>Recent Posts</h2>
+  <hr>
   {{#each user.posts}}
-  <p>{{title}}</p>
-  <img src="{{imageUrl}}" class="card-img-top" alt="{{title}}">
-  <button>
-    <a href="/userProfile/{{_id}}/edit">Edit Post</a>
-  </button>
+  <p>Title: {{title}}</p>
+  <p>Description: {{description}}</p>
+  <img src="{{imageUrl}}" class="main__userProfile-post-img" alt="{{title}}">
+  <div>
+    <a class="main__userProfile-edit-post" href="/userProfile/{{_id}}/edit"><button class="btn">Edit Post</button></a>
+  </div>
+  <hr>
   {{/each}}
-  
-  <button>
-    <a href="/userProfile">Reload the page</a>
-  </button>
-  <button>
-  <a href="/userProfile/edit">Edit Profile</a>
-  </button>
-  {{!-- <button>
-    <a href="/userProfile/create">Create Post</a>
-  </button> --}}
-  <form action="/userProfile/delete" method="POST"> 
-    <button>Delete Profile</button>
-  </form>
+  </main>
   <nav class="nav">
     <a class="nav__link" href="/userProfile">
       <span class="material-icons nav__icon">home</span>
@@ -42,11 +26,9 @@
       <span class="material-icons nav__icon">add</span>
       <span class="nav__text">Create post</span>
     </a>
-    <form id="logout-form" action="/logout" method="POST">
-      <a class="nav__link" href="/userProfile">
+    <form class="nav__link" id="logout-form" action="/logout" method="POST">
         <span class="material-icons nav__icon">logout</span>
-        <span class="nav__text">Logout</span>
-      </a>
+        <button class="nav__btn-logout">Logout</button>
     </form>
   </nav>
 {{else}}

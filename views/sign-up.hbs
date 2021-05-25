@@ -1,19 +1,20 @@
+<main class="main">
+  <h1>K·A·T·A·L·O·G</h1>
+  <div class="main__home-div">
+    <form class="main__home-div-form" action="/sign-up" method="POST">
+        <input class="main__home-div-input" type="text" name="name" id="name-input" placeholder="Name" />
+        
+        <input class="main__home-div-input" type="email" name="email" id="email-input" placeholder="Email" />
+        
+        <input class="main__home-div-input" type="password" name="password" id="password-input" placeholder="Password" />
 
-<h1>K·A·T·A·L·O·G</h1>
-<div class="home-page">
-<form action="/sign-up" method="POST">
-    <input type="text" name="name" id="name-input" placeholder="Name" />
-    
-    <input type="email" name="email" id="email-input" placeholder="Email" />
-    
-    <input type="password" name="password" id="password-input" placeholder="Password" />
-
-    <button class="btn" type="submit">Sign up</button>
-     {{#if errorMessage}}
-    <p class="error">{{errorMessage}}</p>
-  {{/if}}
-</form>
-<a href="/">Log in</a>
-</div>
+        <button class="btn btn__cta" type="submit">Sign up</button>
+        {{#if errorMessage}}
+        <p class="error">{{errorMessage}}</p>
+        {{/if}}
+    </form>
+    <a class="main__home-div-a" href="/">Log in</a>
+  </div>
+</main>
 
 
