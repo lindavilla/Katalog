@@ -1,18 +1,41 @@
-
-
-<h1>Edit Profile Information</h1>
-<form action="/userProfile/edit" method="POST">
-
-  <label for="name-input">Name:</label>
-  <input type="text" name="name" id="name-input" value="{{user.name}}" />
-
-  <label for="email-input">Email:</label>
-  <input type="email" name="email" id="email-input" value="{{user.email}}" />
-
-  
-  <button type="submit">update</button>
-</form>
-<form action="/userProfile/delete" method="POST"> 
-    <button>Delete Profile</button>
-</form>
-<a href="/userProfile">Go Back!</a>
+<main class="main">
+  <h1>Edit Profile Information</h1>
+  <div class="main__form-div">
+    <form action="/userProfile/edit" method="POST">
+      <ul class="main__form-ul">
+        <li class="main__form-row">
+          <label for="name-input">Name:</label>
+          <input type="text" name="name" id="name-input" value="{{user.name}}" />
+        </li>
+        <li class="main__form-row">
+          <label for="email-input">Email:</label>
+          <input type="email" name="email" id="email-input" value="{{user.email}}" />
+        </li>
+        <li class="main__form-btn">
+          <button class="btn btn__cta" type="submit">Update</button>
+        </li>
+      </ul>
+    </form>
+  </div>
+  <form class="main__edit-delete" action="/userProfile/delete" method="POST"> 
+      <button class="btn">Delete Profile</button>
+  </form>
+</main>
+<nav class="nav">
+    <a class="nav__link" href="/userProfile">
+      <span class="material-icons nav__icon">home</span>
+      <span class="nav__text">Home</span>
+    </a>
+    <a class="nav__link" href="/userProfile/edit">
+      <span class="material-icons nav__icon">edit</span>
+      <span class="nav__text">Edit profile</span>
+    </a>
+    <a class="nav__link" href="/userProfile/create">
+      <span class="material-icons nav__icon">add</span>
+      <span class="nav__text">Create post</span>
+    </a>
+    <a href="/logout" class="nav__link">
+      <span class="material-icons nav__icon">logout</span>
+      <span class="nav__text">Logout</button>
+    </a>
+  </nav>

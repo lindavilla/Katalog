@@ -8,30 +8,39 @@
   <p>Description: {{description}}</p>
   <img src="{{imageUrl}}" class="main__userProfile-post-img" alt="{{title}}">
   <div>
-    <a class="main__userProfile-edit-post" href="/userProfile/{{_id}}/edit"><button class="btn">Edit Post</button></a>
+    <a class="main__userProfile-edit-post" href="/userProfile/{{_id}}/edit">
+      <button class="btn">Edit Post</button>
+    </a>
   </div>
   <hr>
   {{/each}}
-  </main>
-  <nav class="nav">
-    <a class="nav__link" href="/userProfile">
-      <span class="material-icons nav__icon">home</span>
-      <span class="nav__text">Home</span>
-    </a>
-    <a class="nav__link" href="/userProfile/edit">
-      <span class="material-icons nav__icon">edit</span>
-      <span class="nav__text">Edit profile</span>
-    </a>
-    <a class="nav__link" href="/userProfile/create">
-      <span class="material-icons nav__icon">add</span>
-      <span class="nav__text">Create post</span>
-    </a>
-    <a href="/logout" class="nav__link">
-      <span class="material-icons nav__icon">logout</span>
-      <span class="nav__text">Logout</button>
-    </a>
-  </nav>
+</main>
+<nav class="nav">
+  <a class="nav__link" href="/userProfile">
+    <span class="material-icons nav__icon">home</span>
+    <span class="nav__text">Home</span>
+  </a>
+  <a class="nav__link" href="/userProfile/edit">
+    <span class="material-icons nav__icon">edit</span>
+    <span class="nav__text">Edit profile</span>
+  </a>
+  <a class="nav__link" href="/userProfile/create">
+    <span class="material-icons nav__icon">add</span>
+    <span class="nav__text">Create post</span>
+  </a>
+  <a href="/logout" class="nav__link">
+    <span class="material-icons nav__icon">logout</span>
+    <span class="nav__text">Logout</button>
+  </a>
+</nav>
 {{else}}
-  <p>Still not logged in, sorry!</p> 
-  <a href="/">Log in to see your profile</a>
+<p>Still not logged in, sorry!</p> 
+<a href="/"><button class="btn btn__cta">Log in to see your profile</button></a>
+<div class="main__info-links">
+  <ul class="main__info-links-ul">
+    <li class="main__info-links-li"><a class="main__info-links-a" href="#">About Us</a></li>
+    <li class="main__info-links-li"><a class="main__info-links-a" href="#">What is KATALOG?</a></li>
+    <li class="main__info-links-li"><a class="main__info-links-a" href="#">Privacy Policy</a></li>
+  </ul>
+</div>
 {{/if}}

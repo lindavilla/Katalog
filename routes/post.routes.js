@@ -25,30 +25,38 @@ router.post('/userProfile/create', fileUploader.single('image'), (req, res) => {
 });
 
 
-  //GET update post
-  router.get('/userProfile/:id/edit', (req, res, next) => {
-    // const postId = req.session.currentUser.posts[0]._id;
-    const postId = req.params.id;
-    Post.findById(postId)
-    .then(postToEdit => {
-      console.log(postToEdit);
-      return res.render('edit-post', { post: postToEdit });
-    })
-    .catch(error => next(error));
+//GET update post
+router.get('/userProfile/:id/edit', (req, res, next) => {
+  // const postId = req.session.currentUser.posts[0]._id;
+  const postId = req.params.id;
+  Post.findById(postId)
+  .then(postToEdit => {
+    console.log(postToEdit);
+    return res.render('edit-post', { post: postToEdit });
   })
+  .catch(error => next(error));
+})
 
-  //POST update post
-  router.post('/userProfile/:id/edit', (req, res, next) => {
-    // const postId = req.session.currentUser.posts._id;
-    const postId = req.params.id;
-    const { title, description, theme } = req.body;
-   
-    Post.findByIdAndUpdate(postId, { title, description, theme }, { new: true })
-      .then(() => res.redirect('/userProfile'))
-      .catch(error => next(error));
-  });
+//POST update post
+router.post('/userProfile/:id/edit', (req, res, next) => {
+  // const postId = req.session.currentUser.posts._id;
+  const postId = req.params.id;
+  const { title, description, theme } = req.body;
+  
+  Post.findByIdAndUpdate(postId, { title, description, theme }, { new: true })
+    .then(() => res.redirect('/userProfile'))
+    .catch(error => next(error));
+});
 
-  //Delete post
+//Delete post
+
+router.post('/userProfile/:id/delete', (req, res) => {
+  const postId = req.params.id;
+  
+  Post.findByIdAndDelete(postId)
+    .then(() => res.redirect('/userProfile'))
+    .catch(error => next(error));
+});
 
 module.exports = router;
 

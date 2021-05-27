@@ -1,19 +1,46 @@
-
-<h1>Create a post!</h1>
-<form action="/userProfile/create" method="POST" enctype="multipart/form-data">
-
-  <label for="title-input">Title:</label>
-  <input type="text" name="title" id="title-input" />
-
-  <label for="description-input">Description:</label>
-  <input type="text" name="description" id="description-input" />
-
-  <label for="theme-input">Theme:</label>
-  <input type="text" name="theme" id="theme-input" />
-
-  <label for="image">Image:</label>
-  <input type="file" name="image" id="image" />
-
-  <button type="submit">Create!</button>
-</form>
-<a href="/userProfile">Go Back!</a>
+<main class="main">
+  <h1>Create a post!</h1>
+  <div class="main__form-div">
+    <form action="/userProfile/create" method="POST" enctype="multipart/form-data">
+      <ul class="main__form-ul">
+        <li class="main__form-row">
+          <label for="title-input">Title:</label>
+          <input type="text" name="title" id="title-input" />
+        </li>
+        <li class="main__form-row">
+          <label for="description-input">Description:</label>
+          <input type="text" name="description" id="description-input" />
+        </li>
+        <li class="main__form-row">
+          <label for="theme-input">Theme:</label>
+          <input type="text" name="theme" id="theme-input" />
+        </li>
+        <li class="main__form-row">
+          <label for="image">Image:</label>
+          <input type="file" name="image" id="image" />
+        </li>
+        <li class="main__form-btn">
+          <button class="btn btn__cta" type="submit">Create!</button>
+        </li>
+      </ul>
+    </form>
+  </div>
+</main>
+<nav class="nav">
+    <a class="nav__link" href="/userProfile">
+      <span class="material-icons nav__icon">home</span>
+      <span class="nav__text">Home</span>
+    </a>
+    <a class="nav__link" href="/userProfile/edit">
+      <span class="material-icons nav__icon">edit</span>
+      <span class="nav__text">Edit profile</span>
+    </a>
+    <a class="nav__link" href="/userProfile/create">
+      <span class="material-icons nav__icon">add</span>
+      <span class="nav__text">Create post</span>
+    </a>
+    <a href="/logout" class="nav__link">
+      <span class="material-icons nav__icon">logout</span>
+      <span class="nav__text">Logout</button>
+    </a>
+  </nav>
